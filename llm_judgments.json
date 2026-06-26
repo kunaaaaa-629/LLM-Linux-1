@@ -1,0 +1,190 @@
+{
+  "summary": {
+    "total": 7,
+    "verdict_real_bug": 2,
+    "verdict_false_positive": 2,
+    "uncertain": 3,
+    "false_positive_by_category": {
+      "path": 2,
+      "other": 0,
+      "uncertain": 3
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "9b4ef9f1f91dc05607358e643c7a818c",
+      "raw": "c:\\Users\\11452\\Desktop\\software quality assurance\\code\\sample_target\\src\\api.c:80:30: warning: Obsolete function 'gets' called. It is recommended to use 'fgets' or 'gets_s' instead.",
+      "location": {
+        "file": "c:\\Users\\11452\\Desktop\\software quality assurance\\code\\sample_target\\src\\api.c",
+        "line": 80,
+        "col": 30
+      },
+      "message": "Obsolete function 'gets' called. It is recommended to use 'fgets' or 'gets_s' instead.",
+      "llm_round1": {
+        "is_real_bug": true,
+        "reason": "gets不安全，已被弃用",
+        "fp_category": "none"
+      },
+      "llm_round2": {
+        "is_real_bug": true,
+        "reason": "gets不安全，已被弃用",
+        "fp_category": "none"
+      },
+      "llm_agree": true,
+      "uncertain": false,
+      "is_real_bug": true,
+      "fp_category": "none",
+      "reason": "gets不安全，已被弃用"
+    },
+    {
+      "finding_id": "7b606387c790227802469de610e6e66d",
+      "raw": "c:\\Users\\11452\\Desktop\\software quality assurance\\code\\sample_target\\src\\app.c:12:55: error: Resource leak: f",
+      "location": {
+        "file": "c:\\Users\\11452\\Desktop\\software quality assurance\\code\\sample_target\\src\\app.c",
+        "line": 12,
+        "col": 55
+      },
+      "message": "Resource leak: f",
+      "llm_round1": {
+        "is_real_bug": true,
+        "reason": "fopen未调用fclose",
+        "fp_category": "none"
+      },
+      "llm_round2": {
+        "is_real_bug": true,
+        "reason": "fopen未调用fclose",
+        "fp_category": "none"
+      },
+      "llm_agree": true,
+      "uncertain": false,
+      "is_real_bug": true,
+      "fp_category": "none",
+      "reason": "fopen未调用fclose"
+    },
+    {
+      "finding_id": "f8cf91d1fd2f3879dcb26cd71ba7810f",
+      "raw": "c:\\Users\\11452\\Desktop\\software quality assurance\\code\\sample_target\\src\\db.c:22:25: error: Uninitialized variable: status",
+      "location": {
+        "file": "c:\\Users\\11452\\Desktop\\software quality assurance\\code\\sample_target\\src\\db.c",
+        "line": 22,
+        "col": 25
+      },
+      "message": "Uninitialized variable: status",
+      "llm_round1": {
+        "is_real_bug": null,
+        "reason": "需要人工审查",
+        "fp_category": "unknown"
+      },
+      "llm_round2": {
+        "is_real_bug": null,
+        "reason": "需要人工审查",
+        "fp_category": "unknown"
+      },
+      "llm_agree": true,
+      "uncertain": true,
+      "is_real_bug": null,
+      "fp_category": "uncertain",
+      "reason": "两轮不一致: R1=None, R2=None"
+    },
+    {
+      "finding_id": "6e53db78015554fbaf6db5e7169f3c8e",
+      "raw": "c:\\Users\\11452\\Desktop\\software quality assurance\\code\\sample_target\\src\\file.c:55:49: error: Returning/dereferencing 'p' after it is deallocated / released",
+      "location": {
+        "file": "c:\\Users\\11452\\Desktop\\software quality assurance\\code\\sample_target\\src\\file.c",
+        "line": 55,
+        "col": 49
+      },
+      "message": "Returning/dereferencing 'p' after it is deallocated / released",
+      "llm_round1": {
+        "is_real_bug": null,
+        "reason": "需要人工审查",
+        "fp_category": "unknown"
+      },
+      "llm_round2": {
+        "is_real_bug": null,
+        "reason": "需要人工审查",
+        "fp_category": "unknown"
+      },
+      "llm_agree": true,
+      "uncertain": true,
+      "is_real_bug": null,
+      "fp_category": "uncertain",
+      "reason": "两轮不一致: R1=None, R2=None"
+    },
+    {
+      "finding_id": "5ef9f68d35de3755f077033e0059ea8e",
+      "raw": "c:\\Users\\11452\\Desktop\\software quality assurance\\code\\sample_target\\src\\main.c:200:39: error: Memory pointed to by 'p' is freed twice.",
+      "location": {
+        "file": "c:\\Users\\11452\\Desktop\\software quality assurance\\code\\sample_target\\src\\main.c",
+        "line": 200,
+        "col": 39
+      },
+      "message": "Memory pointed to by 'p' is freed twice.",
+      "llm_round1": {
+        "is_real_bug": null,
+        "reason": "需要人工审查",
+        "fp_category": "unknown"
+      },
+      "llm_round2": {
+        "is_real_bug": null,
+        "reason": "需要人工审查",
+        "fp_category": "unknown"
+      },
+      "llm_agree": true,
+      "uncertain": true,
+      "is_real_bug": null,
+      "fp_category": "uncertain",
+      "reason": "两轮不一致: R1=None, R2=None"
+    },
+    {
+      "finding_id": "9a3d69ae3924b0c14323ed90892a2152",
+      "raw": "c:\\Users\\11452\\Desktop\\software quality assurance\\code\\sample_target\\src\\mem.c:88:51: error: Memory leak: ptr",
+      "location": {
+        "file": "c:\\Users\\11452\\Desktop\\software quality assurance\\code\\sample_target\\src\\mem.c",
+        "line": 88,
+        "col": 51
+      },
+      "message": "Memory leak: ptr",
+      "llm_round1": {
+        "is_real_bug": false,
+        "reason": "ptr在函数末尾被free，仅特定分支泄露",
+        "fp_category": "path"
+      },
+      "llm_round2": {
+        "is_real_bug": false,
+        "reason": "ptr在函数末尾被free，仅特定分支泄露",
+        "fp_category": "path"
+      },
+      "llm_agree": true,
+      "uncertain": false,
+      "is_real_bug": false,
+      "fp_category": "path",
+      "reason": "ptr在函数末尾被free，仅特定分支泄露"
+    },
+    {
+      "finding_id": "179fe9cd296a48583363dd1320df1492",
+      "raw": "c:\\Users\\11452\\Desktop\\software quality assurance\\code\\sample_target\\src\\net.c:45:50: warning: Either the condition '!s' is redundant or there is possible null pointer dereference: s.",
+      "location": {
+        "file": "c:\\Users\\11452\\Desktop\\software quality assurance\\code\\sample_target\\src\\net.c",
+        "line": 45,
+        "col": 50
+      },
+      "message": "Either the condition '!s' is redundant or there is possible null pointer dereference: s.",
+      "llm_round1": {
+        "is_real_bug": false,
+        "reason": "解引用发生在空指针检查之前，实际运行时s不可能为NULL",
+        "fp_category": "path"
+      },
+      "llm_round2": {
+        "is_real_bug": false,
+        "reason": "解引用发生在空指针检查之前，实际运行时s不可能为NULL",
+        "fp_category": "path"
+      },
+      "llm_agree": true,
+      "uncertain": false,
+      "is_real_bug": false,
+      "fp_category": "path",
+      "reason": "解引用发生在空指针检查之前，实际运行时s不可能为NULL"
+    }
+  ]
+}
